@@ -1,0 +1,62 @@
+--script creado por Areus
+
+_G.automaticdurabilidad = true;
+_G.automaticswhord = true;
+_G.automaticagilidad = true;
+
+for i, v in pairs(_G) do
+print(i,v);
+end
+
+
+function automaticdurabilidad(durabilidadAmount)
+    spawn(function()
+        local iteration = 0;
+        while _G.automaticdurabilidad == true do
+            local args ={[1] = durabilidadAmount}
+    game:GetService("ReplicatedStorage").RSPackage.Events.StatFunction:InvokeServer("Stat","Durability")
+    wait() iteration = iteration +1
+        end
+    end)
+end
+
+automaticdurabilidad(1000000)
+function autimaticsword(swordAmount)
+    
+end
+spawn(function() 
+    while _G.automaticswhord == true do
+        game:GetService("ReplicatedStorage").RSPackage.Events.GeneralEvent:FireServer("SE",true)
+        wait()
+        end
+end)
+
+spawn(function ()
+    while _G.automaticagilidad == true do
+        game:GetService("ReplicatedStorage").RSPackage.Events.GeneralFunction:InvokeServer("PlrData") 
+    end
+end)
+
+
+
+
+function getCurrentPlayerPOs()
+    local plyr = game.Players.LocalPlayer;
+    if plyr.Character then
+    return plyr.Character.HumanoidRootPart.Position;
+    end
+    return false;
+end
+
+
+local currentPosition = get CurrentPlayerPOs();
+if currentPosition then
+    --Comprueba la pocicion-By Areus del Vector 3 
+end
+
+
+
+
+
+Game.Player.LocalPlayer.Character.Head.NameTag.Frame.Visible = false;
+
